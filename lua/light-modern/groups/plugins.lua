@@ -444,7 +444,7 @@ function M.get(c, opts)
     TreesitterContextLineNumber= { fg = c.fg_muted, bg = c.bg_alt },
     TreesitterContextBottom    = { underline = true, sp = c.border },
 
-    RainbowDelimiterRed    = { fg = c.tag },
+    RainbowDelimiterRed    = { fg = c.regexp },
     RainbowDelimiterYellow = { fg = c.func },
     RainbowDelimiterBlue   = { fg = c.accent },
     RainbowDelimiterOrange = { fg = c.attribute },
@@ -515,8 +515,8 @@ function M.get(c, opts)
     RenderMarkdownH1Bg     = { fg = c.tag, bg = util.blend(c.tag, c.bg, 0.08) },
     RenderMarkdownH2Bg     = { fg = c.tag, bg = util.blend(c.tag, c.bg, 0.06) },
     RenderMarkdownCode     = { bg = c.bg_alt },
-    RenderMarkdownBullet   = { fg = c.property_value },
-    RenderMarkdownQuote    = { fg = c.property_value },
+    RenderMarkdownBullet   = { fg = c.markup_list },
+    RenderMarkdownQuote    = { fg = c.markup_list },
     RenderMarkdownDash     = { fg = c.border_alt },
   }
 end

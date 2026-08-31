@@ -57,11 +57,11 @@ function M.get(c, opts)
     markdownH3     = { fg = c.tag, bold = true },
     markdownBold   = { fg = c.markup_bold, bold = true },
     markdownItalic = { italic = true },
-    markdownCode   = { fg = c.tag },
+    markdownCode   = { fg = c.markup_raw },
     markdownCodeBlock = { fg = c.fg_editor },
     markdownLinkText  = { fg = c.accent, underline = true },
-    markdownUrl    = { fg = c.property_value },
-    markdownListMarker = { fg = c.property_value },
+    markdownUrl    = { fg = c.markup_list },
+    markdownListMarker = { fg = c.markup_list },
   }
 end
 

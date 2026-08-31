@@ -90,14 +90,14 @@ function M.get(c, opts)
     ["@markup.heading.4"]           = { fg = c.tag, bold = true },
     ["@markup.heading.5"]           = { fg = c.tag, bold = true },
     ["@markup.heading.6"]           = { fg = c.tag, bold = true },
-    ["@markup.quote"]               = { fg = c.property_value, italic = true },
+    ["@markup.quote"]               = { fg = c.markup_list, italic = true },
     ["@markup.math"]                = { fg = c.number },
     ["@markup.link"]                = { fg = c.accent },
-    ["@markup.link.label"]          = { fg = c.property_value },
+    ["@markup.link.label"]          = { fg = c.markup_list },
     ["@markup.link.url"]            = { fg = c.accent, underline = true },
-    ["@markup.raw"]                 = { fg = c.tag },                   -- markup.inline.raw
+    ["@markup.raw"]                 = { fg = c.markup_raw },            -- markup.inline.raw
     ["@markup.raw.block"]           = { fg = c.fg_editor },
-    ["@markup.list"]                = { fg = c.property_value },
+    ["@markup.list"]                = { fg = c.markup_list },
     ["@markup.list.checked"]        = { fg = c.added },
     ["@markup.list.unchecked"]      = { fg = c.fg_dim },
 
@@ -108,25 +108,25 @@ function M.get(c, opts)
     ["@tag"]                        = { fg = c.tag },                   -- entity.name.tag
     ["@tag.builtin"]                = { fg = c.tag },
     ["@tag.attribute"]              = { fg = c.attribute },             -- entity.other.attribute-name
-    ["@tag.delimiter"]              = { fg = c.tag },                   -- punctuation.definition.tag
+    ["@tag.delimiter"]              = { fg = c.tag_delimiter },         -- punctuation.definition.tag
 
     ["@none"]                       = {},
     ["@conceal"]                    = { fg = c.fg_muted },
     ["@spell"]                      = {},
     ["@nospell"]                    = {},
 
-    ["@string.html"]                = { fg = c.keyword },            -- attribute values are blue, not string-red
-    ["@string.xml"]                 = { fg = c.keyword },
-    ["@property.json"]              = { fg = c.property_value },     -- support.type.property-name
-    ["@property.jsonc"]             = { fg = c.property_value },
-    ["@property.json5"]             = { fg = c.property_value },
-    ["@property.yaml"]              = { fg = c.property_value },
-    ["@property.toml"]              = { fg = c.property_value },
-    ["@label.json"]                 = { fg = c.property_value },
-    ["@label.yaml"]                 = { fg = c.property_value },
+    ["@string.html"]                = { fg = c.html_string },        -- attribute values differ from plain strings
+    ["@string.xml"]                 = { fg = c.html_string },
+    ["@property.json"]              = { fg = c.json_key },           -- support.type.property-name
+    ["@property.jsonc"]             = { fg = c.json_key },
+    ["@property.json5"]             = { fg = c.json_key },
+    ["@property.yaml"]              = { fg = c.json_key },
+    ["@property.toml"]              = { fg = c.json_key },
+    ["@label.json"]                 = { fg = c.json_key },
+    ["@label.yaml"]                 = { fg = c.json_key },
     ["@property.css"]               = { fg = c.type },               -- support.type.property-name.css
-    ["@type.css"]                   = { fg = c.tag },                -- entity.name.tag (selectors)
-    ["@tag.css"]                    = { fg = c.tag },
+    ["@type.css"]                   = { fg = c.css_selector },       -- entity.name.selector
+    ["@tag.css"]                    = { fg = c.css_selector },
     ["@string.plain.css"]           = { fg = c.string },
     ["@number.css"]                 = { fg = c.number },
     ["@function.css"]               = { fg = c.func },

@@ -15,9 +15,10 @@ function M.load(opts)
   return require("light-modern.theme").apply()
 end
 
+---@param style string|nil "light" or "dark"
 ---@return table
-function M.colors()
-  return require("light-modern.theme").colors()
+function M.colors(style)
+  return require("light-modern.theme").colors(style)
 end
 
 ---@return table

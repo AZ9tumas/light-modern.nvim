@@ -1,6 +1,7 @@
 local M = {}
 
 M.defaults = {
+  style = "light",
   transparent = false,
   terminal_colors = true,
   dim_inactive = false,

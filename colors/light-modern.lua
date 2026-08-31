@@ -1,1 +1,1 @@
-require("light-modern").load()
+require("light-modern").load({ style = "light" })

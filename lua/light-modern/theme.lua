@@ -6,10 +6,12 @@ local M = {}
 
 local MODULES = { "editor", "syntax", "treesitter", "lsp", "plugins" }
 
+---@param style string|nil "light" or "dark"; defaults to the configured style
 ---@return table
-function M.colors()
-  local c = vim.deepcopy(palette.colors)
+function M.colors(style)
   local opts = config.options
+  style = palette.styles[style or opts.style] and (style or opts.style) or "light"
+  local c = vim.deepcopy(palette.styles[style])
   if type(opts.on_colors) == "function" then
     opts.on_colors(c)
   end
@@ -63,22 +65,25 @@ function M.apply()
     vim.cmd("syntax reset")
   end
 
-  vim.o.termguicolors = true
-  vim.o.background = "light"
-  vim.g.colors_name = "light-modern"
+  local style = config.options.style == "dark" and "dark" or "light"
+  local name = style == "dark" and "dark-modern" or "light-modern"
 
-  local hl, c = M.highlights()
+  vim.o.termguicolors = true
+  vim.o.background = style
+  vim.g.colors_name = name
+
+  local hl, c = M.highlights(M.colors(style))
   for group, spec in pairs(hl) do
     vim.api.nvim_set_hl(0, group, spec)
   end
 
   if config.options.terminal_colors then
-    util.terminal(palette.terminal)
+    util.terminal(palette.terminal[style])
   end
 
   setup_sidebars(config.options)
 
-  vim.api.nvim_exec_autocmds("ColorScheme", { pattern = "light-modern", modeline = false })
+  vim.api.nvim_exec_autocmds("ColorScheme", { pattern = name, modeline = false })
 
   return c
 end
