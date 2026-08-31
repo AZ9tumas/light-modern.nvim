@@ -41,7 +41,7 @@ Requires Neovim >= 0.8 with `termguicolors`.
 
 ```lua
 {
-  "your-github-username/light-modern.nvim",
+  "AZ8tumas/light-modern.nvim",
   lazy = false,
   priority = 1000,
   opts = {},
@@ -56,7 +56,7 @@ Using LazyVim? Set it as the colorscheme instead of calling `vim.cmd`:
 
 ```lua
 {
-  { "your-github-username/light-modern.nvim", lazy = false, priority = 1000, opts = {} },
+  { "AZ9tumas/light-modern.nvim", lazy = false, priority = 1000, opts = {} },
   { "LazyVim/LazyVim", opts = { colorscheme = "light-modern" } },
 }
 ```
@@ -81,10 +81,10 @@ Other managers:
 
 ```lua
 -- packer.nvim
-use({ "your-github-username/light-modern.nvim" })
+use({ "AZ9tumas/light-modern.nvim" })
 
 -- vim-plug
-Plug 'your-github-username/light-modern.nvim'
+Plug 'AZ9tumas/light-modern.nvim'
 ```
 
 ```vim
