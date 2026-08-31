@@ -9,7 +9,6 @@ local function hex_to_rgb(hex)
   }
 end
 
---- Mix `fg` into `bg` at `alpha` (0..1) and return the resulting hex string.
 function M.blend(fg, bg, alpha)
   local f, b = hex_to_rgb(fg), hex_to_rgb(bg)
   local function channel(i)
@@ -19,17 +18,14 @@ function M.blend(fg, bg, alpha)
   return string.format("#%02x%02x%02x", channel(1), channel(2), channel(3))
 end
 
---- Pull `hex` towards black by `amount` (0..1).
 function M.darken(hex, amount)
   return M.blend(hex, "#000000", 1 - amount)
 end
 
---- Pull `hex` towards white (or `base`) by `amount` (0..1).
 function M.lighten(hex, amount, base)
   return M.blend(hex, base or "#ffffff", 1 - amount)
 end
 
---- Merge a user style table (`{ italic = true }`) onto a highlight spec.
 function M.style(base, style)
   if type(style) ~= "table" or vim.tbl_isempty(style) then
     return base
@@ -37,7 +33,6 @@ function M.style(base, style)
   return vim.tbl_extend("force", base, style)
 end
 
---- Expose the palette to `:terminal` buffers.
 function M.terminal(term)
   vim.g.terminal_color_0  = term.black
   vim.g.terminal_color_1  = term.red

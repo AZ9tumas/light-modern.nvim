@@ -1,5 +1,3 @@
---- Core editor and UI highlight groups.
-
 local M = {}
 
 function M.get(c, opts)
@@ -119,7 +117,6 @@ function M.get(c, opts)
     debugPC       = { bg = c.accent_soft },
     debugBreakpoint = { fg = c.removed },
 
-    -- `:checkhealth`, `:h`, and other built-in filetypes
     helpCommand   = { fg = c.tag, bg = c.bg_alt },
     helpExample   = { fg = c.fg_dim },
     helpHeader    = { fg = c.tag, bold = true },
@@ -127,7 +124,6 @@ function M.get(c, opts)
     helpHyperTextEntry = { fg = c.accent, bold = true },
     helpHyperTextJump  = { fg = c.accent },
 
-    -- netrw
     netrwDir      = { fg = c.accent },
     netrwClassify = { fg = c.accent },
     netrwExe      = { fg = c.added },

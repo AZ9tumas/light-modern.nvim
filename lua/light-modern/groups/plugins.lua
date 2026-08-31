@@ -1,6 +1,3 @@
---- Highlight groups for commonly used plugins. Defining these is harmless when
---- the plugin is not installed, so they are always registered.
-
 local util = require("light-modern.util")
 
 local M = {}
@@ -11,9 +8,6 @@ function M.get(c, opts)
   local bg_float = opts.transparent and c.none or c.bg_float
 
   return {
-    ---------------------------------------------------------------------------
-    -- gitsigns.nvim
-    ---------------------------------------------------------------------------
     GitSignsAdd            = { fg = c.added },
     GitSignsChange         = { fg = c.changed },
     GitSignsDelete         = { fg = c.removed },
@@ -28,9 +22,6 @@ function M.get(c, opts)
     GitSignsDeleteInline   = { bg = c.diff_delete },
     GitSignsCurrentLineBlame = { fg = c.fg_muted, italic = true },
 
-    ---------------------------------------------------------------------------
-    -- telescope.nvim
-    ---------------------------------------------------------------------------
     TelescopeNormal        = { fg = c.fg, bg = bg_float },
     TelescopeBorder        = { fg = c.border_alt, bg = bg_float },
     TelescopeTitle         = { fg = c.bg, bg = c.accent, bold = true },
@@ -50,9 +41,6 @@ function M.get(c, opts)
     TelescopeResultsDiffChange = { fg = c.changed },
     TelescopeResultsDiffDelete = { fg = c.removed },
 
-    ---------------------------------------------------------------------------
-    -- fzf-lua
-    ---------------------------------------------------------------------------
     FzfLuaNormal           = { fg = c.fg, bg = bg_float },
     FzfLuaBorder           = { fg = c.border_alt, bg = bg_float },
     FzfLuaTitle            = { fg = c.bg, bg = c.accent, bold = true },
@@ -65,9 +53,6 @@ function M.get(c, opts)
     FzfLuaBufNr            = { fg = c.number },
     FzfLuaLiveSym          = { fg = c.func },
 
-    ---------------------------------------------------------------------------
-    -- nvim-tree
-    ---------------------------------------------------------------------------
     NvimTreeNormal         = { fg = c.fg, bg = bg_sidebar },
     NvimTreeNormalNC       = { fg = c.fg, bg = bg_sidebar },
     NvimTreeWinSeparator   = { fg = c.border, bg = bg_sidebar },
@@ -92,9 +77,6 @@ function M.get(c, opts)
     NvimTreeGitRenamed     = { fg = c.changed },
     NvimTreeGitDeleted     = { fg = c.removed },
 
-    ---------------------------------------------------------------------------
-    -- neo-tree.nvim
-    ---------------------------------------------------------------------------
     NeoTreeNormal          = { fg = c.fg, bg = bg_sidebar },
     NeoTreeNormalNC        = { fg = c.fg, bg = bg_sidebar },
     NeoTreeWinSeparator    = { fg = c.border, bg = bg_sidebar },
@@ -123,9 +105,6 @@ function M.get(c, opts)
     NeoTreeTabSeparatorActive   = { fg = c.accent, bg = bg },
     NeoTreeTabSeparatorInactive = { fg = c.border, bg = bg_sidebar },
 
-    ---------------------------------------------------------------------------
-    -- oil.nvim / mini.files
-    ---------------------------------------------------------------------------
     OilDir                 = { fg = c.accent },
     OilDirIcon             = { fg = c.fg_dim },
     OilLink                = { fg = c.type },
@@ -143,9 +122,6 @@ function M.get(c, opts)
     MiniFilesFile          = { fg = c.fg },
     MiniFilesCursorLine    = { bg = c.bg_sel },
 
-    ---------------------------------------------------------------------------
-    -- nvim-cmp
-    ---------------------------------------------------------------------------
     CmpDocumentation       = { fg = c.fg, bg = bg_float },
     CmpDocumentationBorder = { fg = c.border_alt, bg = bg_float },
     CmpItemAbbr            = { fg = c.fg },
@@ -182,9 +158,6 @@ function M.get(c, opts)
     CmpItemKindCopilot     = { fg = c.ok },
     CmpGhostText           = { fg = c.fg_muted, italic = true },
 
-    ---------------------------------------------------------------------------
-    -- blink.cmp
-    ---------------------------------------------------------------------------
     BlinkCmpMenu               = { fg = c.fg, bg = bg_float },
     BlinkCmpMenuBorder         = { fg = c.border_alt, bg = bg_float },
     BlinkCmpMenuSelection      = { fg = c.fg_editor, bg = c.bg_sel, bold = true },
@@ -206,9 +179,6 @@ function M.get(c, opts)
     BlinkCmpSignatureHelpBorder = { fg = c.border_alt, bg = bg_float },
     BlinkCmpSignatureHelpActiveParameter = { bg = c.accent_soft, bold = true },
 
-    ---------------------------------------------------------------------------
-    -- bufferline.nvim
-    ---------------------------------------------------------------------------
     BufferLineFill              = { bg = c.bg_alt },
     BufferLineBackground        = { fg = c.fg_dimmer, bg = c.bg_alt },
     BufferLineBufferVisible     = { fg = c.fg_dimmer, bg = c.bg_alt },
@@ -242,9 +212,6 @@ function M.get(c, opts)
     BufferLinePickSelected      = { fg = c.error, bg = bg, bold = true },
     BufferLineOffsetSeparator   = { fg = c.border, bg = c.bg_alt },
 
-    ---------------------------------------------------------------------------
-    -- indent-blankline (v3 `ibl`) and mini.indentscope
-    ---------------------------------------------------------------------------
     IblIndent              = { fg = c.indent },
     IblWhitespace          = { fg = c.indent },
     IblScope               = { fg = c.indent_active },
@@ -253,9 +220,6 @@ function M.get(c, opts)
     MiniIndentscopeSymbol  = { fg = c.indent_active },
     MiniIndentscopePrefix  = { nocombine = true },
 
-    ---------------------------------------------------------------------------
-    -- which-key.nvim
-    ---------------------------------------------------------------------------
     WhichKey               = { fg = c.control },
     WhichKeyGroup          = { fg = c.accent },
     WhichKeyDesc           = { fg = c.fg },
@@ -266,9 +230,6 @@ function M.get(c, opts)
     WhichKeyIcon           = { fg = c.fg_dim },
     WhichKeyTitle          = { fg = c.accent, bg = bg_float, bold = true },
 
-    ---------------------------------------------------------------------------
-    -- noice.nvim / nvim-notify
-    ---------------------------------------------------------------------------
     NoiceCmdline           = { fg = c.fg, bg = bg_float },
     NoiceCmdlineIcon       = { fg = c.accent },
     NoiceCmdlinePopup      = { fg = c.fg, bg = bg_float },
@@ -305,9 +266,6 @@ function M.get(c, opts)
     NotifyDEBUGBody        = { fg = c.fg, bg = bg_float },
     NotifyTRACEBody        = { fg = c.fg, bg = bg_float },
 
-    ---------------------------------------------------------------------------
-    -- snacks.nvim
-    ---------------------------------------------------------------------------
     SnacksNormal           = { fg = c.fg, bg = bg_float },
     SnacksWinBar           = { fg = c.fg, bg = c.bg_alt, bold = true },
     SnacksBackdrop         = { bg = c.bg_dark },
@@ -329,9 +287,6 @@ function M.get(c, opts)
     SnacksPickerBorder     = { fg = c.border_alt, bg = bg_float },
     SnacksPickerTitle      = { fg = c.bg, bg = c.accent, bold = true },
 
-    ---------------------------------------------------------------------------
-    -- trouble.nvim / todo-comments.nvim
-    ---------------------------------------------------------------------------
     TroubleNormal          = { fg = c.fg, bg = bg_sidebar },
     TroubleNormalNC        = { fg = c.fg, bg = bg_sidebar },
     TroubleText            = { fg = c.fg },
@@ -367,9 +322,6 @@ function M.get(c, opts)
     TodoFgTEST             = { fg = c.type },
     TodoSignTEST           = { fg = c.type },
 
-    ---------------------------------------------------------------------------
-    -- lazy.nvim / mason.nvim
-    ---------------------------------------------------------------------------
     LazyNormal             = { fg = c.fg, bg = bg_float },
     LazyButton             = { fg = c.fg, bg = c.bg_sel },
     LazyButtonActive       = { fg = c.bg, bg = c.accent, bold = true },
@@ -400,9 +352,6 @@ function M.get(c, opts)
     MasonMutedBlock        = { fg = c.fg, bg = c.bg_sel },
     MasonError             = { fg = c.error },
 
-    ---------------------------------------------------------------------------
-    -- nvim-dap / nvim-dap-ui
-    ---------------------------------------------------------------------------
     DapBreakpoint          = { fg = c.removed },
     DapBreakpointCondition = { fg = c.warn },
     DapLogPoint            = { fg = c.info },
@@ -426,9 +375,6 @@ function M.get(c, opts)
     DapUIBreakpointsInfo   = { fg = c.added },
     DapUIBreakpointsCurrentLine = { fg = c.added, bold = true },
 
-    ---------------------------------------------------------------------------
-    -- flash.nvim / leap.nvim / hop.nvim
-    ---------------------------------------------------------------------------
     FlashBackdrop          = { fg = c.fg_muted },
     FlashLabel             = { fg = c.bg, bg = c.control, bold = true },
     FlashMatch             = { fg = c.fg_editor, bg = c.match },
@@ -442,9 +388,6 @@ function M.get(c, opts)
     HopNextKey2            = { fg = c.type },
     HopUnmatched           = { fg = c.fg_muted },
 
-    ---------------------------------------------------------------------------
-    -- mini.nvim
-    ---------------------------------------------------------------------------
     MiniStatuslineDevinfo  = { fg = c.fg, bg = c.bg_sel },
     MiniStatuslineFilename = { fg = c.fg_dim, bg = c.bg_alt },
     MiniStatuslineFileinfo = { fg = c.fg, bg = c.bg_sel },
@@ -481,9 +424,6 @@ function M.get(c, opts)
     MiniStarterQuery       = { fg = c.control },
     MiniTrailspace         = { bg = util.blend(c.error, c.bg, 0.25) },
 
-    ---------------------------------------------------------------------------
-    -- alpha-nvim / dashboard-nvim
-    ---------------------------------------------------------------------------
     AlphaHeader            = { fg = c.accent, bold = true },
     AlphaButtons           = { fg = c.fg },
     AlphaShortcut          = { fg = c.func },
@@ -496,9 +436,6 @@ function M.get(c, opts)
     DashboardKey           = { fg = c.func },
     DashboardIcon          = { fg = c.control },
 
-    ---------------------------------------------------------------------------
-    -- Misc
-    ---------------------------------------------------------------------------
     IlluminatedWordText    = { bg = c.bg_highlight },
     IlluminatedWordRead    = { bg = c.bg_highlight },
     IlluminatedWordWrite   = { bg = c.bg_highlight, underline = true },

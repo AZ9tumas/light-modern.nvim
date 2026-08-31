@@ -1,6 +1,3 @@
---- lualine theme for light-modern.
---- Use with: require("lualine").setup({ options = { theme = "light-modern" } })
-
 local ok, theme = pcall(require, "light-modern.theme")
 local c = ok and theme.colors() or require("light-modern.palette").colors
 

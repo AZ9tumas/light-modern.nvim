@@ -1,5 +1,3 @@
---- Diagnostics, LSP semantic tokens, and built-in LSP UI.
-
 local util = require("light-modern.util")
 
 local M = {}
@@ -20,9 +18,6 @@ function M.get(c, opts)
   end
 
   return {
-    ---------------------------------------------------------------------------
-    -- Diagnostics
-    ---------------------------------------------------------------------------
     DiagnosticError = { fg = c.error },
     DiagnosticWarn  = { fg = c.warn },
     DiagnosticInfo  = { fg = c.info },
@@ -56,9 +51,6 @@ function M.get(c, opts)
     DiagnosticUnnecessary = { fg = c.fg_muted },
     DiagnosticDeprecated  = { fg = c.fg_muted, strikethrough = true },
 
-    ---------------------------------------------------------------------------
-    -- LSP UI
-    ---------------------------------------------------------------------------
     LspReferenceText          = { bg = c.bg_highlight },
     LspReferenceRead          = { bg = c.bg_highlight },
     LspReferenceWrite         = { bg = c.bg_highlight, underline = true },
@@ -75,9 +67,6 @@ function M.get(c, opts)
     Snippet                   = { fg = c.accent },
     SnippetTabstop            = { bg = c.accent_soft },
 
-    ---------------------------------------------------------------------------
-    -- Semantic tokens (`:h lsp-semantic-highlight`)
-    ---------------------------------------------------------------------------
     ["@lsp.type.class"]         = { fg = c.type },
     ["@lsp.type.comment"]       = {},
     ["@lsp.type.decorator"]     = { fg = c.func },
@@ -124,7 +113,6 @@ function M.get(c, opts)
     ["@lsp.typemod.macro.defaultLibrary"]     = { fg = c.keyword },
     ["@lsp.typemod.function.declaration"]     = { fg = c.func },
 
-    -- Let tree-sitter win where the semantic token adds nothing.
     ["@lsp.mod.readonly"]   = {},
     ["@lsp.mod.deprecated"] = { strikethrough = true },
   }

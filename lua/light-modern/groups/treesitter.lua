@@ -1,6 +1,3 @@
---- Tree-sitter capture groups (`:h treesitter-highlight-groups`).
---- Each capture is mapped to the TextMate scope VS Code would colour it with.
-
 local util = require("light-modern.util")
 
 local M = {}
@@ -9,9 +6,6 @@ function M.get(c, opts)
   local s = opts.styles
 
   return {
-    ---------------------------------------------------------------------------
-    -- Identifiers
-    ---------------------------------------------------------------------------
     ["@variable"]                   = util.style({ fg = c.variable }, s.variables),
     ["@variable.builtin"]           = { fg = c.keyword },              -- variable.language (this/self)
     ["@variable.parameter"]         = util.style({ fg = c.variable }, s.parameters),
@@ -26,9 +20,6 @@ function M.get(c, opts)
     ["@module.builtin"]             = util.style({ fg = c.type }, s.types),
     ["@label"]                      = { fg = c.control },
 
-    ---------------------------------------------------------------------------
-    -- Literals
-    ---------------------------------------------------------------------------
     ["@string"]                     = util.style({ fg = c.string }, s.strings),
     ["@string.documentation"]       = util.style({ fg = c.string }, s.strings),
     ["@string.regexp"]              = { fg = c.regexp },
@@ -43,9 +34,6 @@ function M.get(c, opts)
     ["@number"]                     = util.style({ fg = c.number }, s.numbers),
     ["@number.float"]               = util.style({ fg = c.number }, s.numbers),
 
-    ---------------------------------------------------------------------------
-    -- Types
-    ---------------------------------------------------------------------------
     ["@type"]                       = util.style({ fg = c.type }, s.types),
     ["@type.builtin"]               = { fg = c.keyword },              -- storage.type (int, bool, ...)
     ["@type.definition"]            = util.style({ fg = c.type }, s.types),
@@ -54,9 +42,6 @@ function M.get(c, opts)
     ["@attribute.builtin"]          = { fg = c.func },
     ["@property"]                   = util.style({ fg = c.variable }, s.properties),
 
-    ---------------------------------------------------------------------------
-    -- Functions
-    ---------------------------------------------------------------------------
     ["@function"]                   = util.style({ fg = c.func }, s.functions),
     ["@function.builtin"]           = util.style({ fg = c.func }, s.functions),
     ["@function.call"]              = util.style({ fg = c.func }, s.functions),
@@ -66,9 +51,6 @@ function M.get(c, opts)
     ["@constructor"]                = util.style({ fg = c.type }, s.types),
     ["@operator"]                   = util.style({ fg = c.operator }, s.operators),
 
-    ---------------------------------------------------------------------------
-    -- Keywords
-    ---------------------------------------------------------------------------
     ["@keyword"]                    = util.style({ fg = c.keyword }, s.keywords),
     ["@keyword.coroutine"]          = util.style({ fg = c.control }, s.keywords),
     ["@keyword.function"]           = util.style({ fg = c.keyword }, s.keywords),
@@ -85,16 +67,10 @@ function M.get(c, opts)
     ["@keyword.directive"]          = { fg = c.keyword },
     ["@keyword.directive.define"]   = { fg = c.keyword },
 
-    ---------------------------------------------------------------------------
-    -- Punctuation
-    ---------------------------------------------------------------------------
     ["@punctuation.delimiter"]      = { fg = c.operator },
     ["@punctuation.bracket"]        = { fg = c.operator },
     ["@punctuation.special"]        = { fg = c.keyword },              -- template expression braces
 
-    ---------------------------------------------------------------------------
-    -- Comments
-    ---------------------------------------------------------------------------
     ["@comment"]                    = util.style({ fg = c.comment }, s.comments),
     ["@comment.documentation"]      = util.style({ fg = c.comment }, s.comments),
     ["@comment.error"]              = { fg = c.bg, bg = c.error, bold = true },
@@ -102,9 +78,6 @@ function M.get(c, opts)
     ["@comment.todo"]               = { fg = c.bg, bg = c.info, bold = true },
     ["@comment.note"]               = { fg = c.bg, bg = c.hint, bold = true },
 
-    ---------------------------------------------------------------------------
-    -- Markup
-    ---------------------------------------------------------------------------
     ["@markup"]                     = { fg = c.fg_editor },
     ["@markup.strong"]              = { fg = c.markup_bold, bold = true },
     ["@markup.italic"]              = { italic = true },
@@ -142,41 +115,30 @@ function M.get(c, opts)
     ["@spell"]                      = {},
     ["@nospell"]                    = {},
 
-    ---------------------------------------------------------------------------
-    -- Language tweaks that match VS Code more closely
-    ---------------------------------------------------------------------------
-    -- HTML attribute values are blue in the Light theme, not string-red.
-    ["@string.html"]                = { fg = c.keyword },
+    ["@string.html"]                = { fg = c.keyword },            -- attribute values are blue, not string-red
     ["@string.xml"]                 = { fg = c.keyword },
-    -- JSON / YAML / TOML keys use `support.type.property-name`.
-    ["@property.json"]              = { fg = c.property_value },
+    ["@property.json"]              = { fg = c.property_value },     -- support.type.property-name
     ["@property.jsonc"]             = { fg = c.property_value },
     ["@property.json5"]             = { fg = c.property_value },
     ["@property.yaml"]              = { fg = c.property_value },
     ["@property.toml"]              = { fg = c.property_value },
     ["@label.json"]                 = { fg = c.property_value },
     ["@label.yaml"]                 = { fg = c.property_value },
-    -- CSS: selectors are maroon, property names teal, values steel blue.
-    ["@property.css"]               = { fg = c.type },
-    ["@type.css"]                   = { fg = c.tag },
+    ["@property.css"]               = { fg = c.type },               -- support.type.property-name.css
+    ["@type.css"]                   = { fg = c.tag },                -- entity.name.tag (selectors)
     ["@tag.css"]                    = { fg = c.tag },
     ["@string.plain.css"]           = { fg = c.string },
     ["@number.css"]                 = { fg = c.number },
     ["@function.css"]               = { fg = c.func },
     ["@constant.css"]               = { fg = c.property_value },
     ["@property.scss"]              = { fg = c.type },
-    -- Python builtins (`str`, `int`) resolve to support.type, i.e. teal.
-    ["@type.builtin.python"]        = { fg = c.type },
+    ["@type.builtin.python"]        = { fg = c.type },               -- support.type, not storage.type
     ["@variable.builtin.python"]    = { fg = c.keyword },
-    -- Lua table keys read better as properties.
     ["@constructor.lua"]            = { fg = c.operator },
-    -- Shell
     ["@variable.bash"]              = { fg = c.variable },
     ["@function.builtin.bash"]      = { fg = c.func },
-    -- Vimdoc
     ["@markup.link.vimdoc"]         = { fg = c.accent },
     ["@label.vimdoc"]               = { fg = c.tag, bold = true },
-    -- Git
     ["@markup.heading.gitcommit"]   = { fg = c.markup_bold, bold = true },
     ["@comment.gitcommit"]          = { fg = c.comment },
   }

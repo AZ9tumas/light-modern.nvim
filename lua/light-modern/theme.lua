@@ -6,7 +6,6 @@ local M = {}
 
 local MODULES = { "editor", "syntax", "treesitter", "lsp", "plugins" }
 
---- Resolved palette, after `on_colors`.
 ---@return table
 function M.colors()
   local c = vim.deepcopy(palette.colors)
@@ -17,7 +16,6 @@ function M.colors()
   return c
 end
 
---- Full highlight table, after `on_highlights`.
 ---@param c table|nil resolved palette
 ---@return table, table highlights, colors
 function M.highlights(c)
@@ -52,7 +50,6 @@ local function setup_sidebars(opts)
   })
 end
 
---- Build and apply the colorscheme.
 function M.apply()
   if vim.version().minor < 8 and vim.version().major == 0 then
     vim.notify("light-modern requires Neovim >= 0.8", vim.log.levels.ERROR)

@@ -1,5 +1,3 @@
---- Legacy (`:h group-name`) syntax groups, mapped from VS Code TextMate scopes.
-
 local util = require("light-modern.util")
 
 local M = {}
@@ -54,7 +52,6 @@ function M.get(c, opts)
     Todo           = { fg = c.bg, bg = c.warn, bold = true },
     Error          = { fg = c.error },
 
-    -- Markdown / help-ish built-ins
     markdownH1     = { fg = c.tag, bold = true },
     markdownH2     = { fg = c.tag, bold = true },
     markdownH3     = { fg = c.tag, bold = true },
