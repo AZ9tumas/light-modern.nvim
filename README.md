@@ -11,6 +11,32 @@ teal (`#267f99`), variables navy (`#001080`), and the UI accent is the familiar
 
 Requires Neovim >= 0.8 with `termguicolors`.
 
+<p align="center">
+  <img src="assets/python.png" alt="light-modern.nvim highlighting a Python file" width="820">
+</p>
+
+<details>
+<summary><b>More languages</b> — TypeScript, C, C++, Java, Lua</summary>
+<br>
+
+| TypeScript | C |
+| :--: | :--: |
+| <img src="assets/typescript.png" alt="TypeScript" width="420"> | <img src="assets/c.png" alt="C" width="420"> |
+
+| C++ | Java |
+| :--: | :--: |
+| <img src="assets/cpp.png" alt="C++" width="420"> | <img src="assets/java.png" alt="Java" width="420"> |
+
+| Lua |
+| :--: |
+| <img src="assets/lua.png" alt="Lua" width="420"> |
+
+</details>
+
+> Every screenshot is generated straight from Neovim with `:TOhtml`, so the
+> colours are exactly what the colorscheme produces — nothing is hand-tuned for
+> the README.
+
 ## Install (lazy.nvim)
 
 ```lua
